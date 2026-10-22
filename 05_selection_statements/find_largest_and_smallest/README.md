@@ -13,7 +13,8 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- found the method to compare the min and max value in pairs, is a lot more efficient than comparing every number on it's own.
+- rewrote the last 2 if-statements as a conditional expression.
 
 ## 🐛 Mistakes & Fixes
 
