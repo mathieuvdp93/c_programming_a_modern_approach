@@ -13,7 +13,8 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- factorials get really big really quick. 21! overflows long so i had to put some simple guardrails in place. 
+- also float not that accurate. only use it when accuracy is not that important.
 
 ## 🐛 Mistakes & Fixes
 
