@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdckdint.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +10,13 @@ int main(void) {
   printf("THis program prints a table of squares.\n");
   printf("Enter number of entries in table: ");
   scanf("%d", &n);
+
+  // this is a c23 function that checks for overflow
+  int result;
+  if (ckd_mul(&result, n, n)) {
+    printf("This n causes overflow\n");
+    exit(1);
+  }
 
   /* second more concise way to check for overflow
         // might have rounding errors and doesn't check for negative values for
