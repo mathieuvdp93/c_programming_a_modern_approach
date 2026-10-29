@@ -1,4 +1,7 @@
+#include <math.h>
+#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
 
@@ -7,9 +10,31 @@ int main(void) {
   printf("Enter number of entries in table: ");
   scanf("%d", &n);
 
-  for (i = 1; i <= n; i++) {
-    printf("%10d%10d\n", i, i * i);
+  /* second more concise way to check for overflow
+        // might have rounding errors and doesn't check for negative values for
+  n if (n > sqrt(INT32_MAX)) { printf("this n value will cause overflow\n");
+    exit(1);
   }
+        */
+
+  // int previous_square = 0;
+
+  for (i = 1; i <= n; i++) {
+    int current_square = i * i;
+
+    /*
+     * first way i found to check for overflow
+if (current_square < previous_square) {
+printf("it overflowed\n");
+break;
+}
+previous_square = current_square;
+    */
+
+    printf("%20d%20d\n", i, current_square);
+  }
+  // it overflows at n = the squareroot of the intXX_MAX + 1
+  printf("%d\n", INT32_MAX);
 
   return 0;
 }
