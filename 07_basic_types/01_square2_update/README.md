@@ -13,7 +13,7 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- there are multiple ways to check for overflow, you can get compilerwarnings to tell you when overflow is occuring, you can put manual checks in ( don't forget to check for negative overflow), in c23 there are ckd_(mult,add,sub) to check for overflow.
 
 ## 🐛 Mistakes & Fixes
 
