@@ -16,6 +16,13 @@ int main(void) {
   int word_score = 0;
 
   while ((ch = getchar()) != '\n' && ch != EOF) {
+    // this if statement is necessary otherwise the later score[ch - 'A'] can
+    // get out of the array bounds if ch is not a letter.
+    if ((ch < 'A' || ch > 'Z') && (ch < 'a' || ch > 'z')) {
+      printf("word contains invalid character %c\n", ch);
+      word_score = 0;
+      break;
+    }
     ch = toupper(ch);
     word_score += score[ch - 'A'];
   }
