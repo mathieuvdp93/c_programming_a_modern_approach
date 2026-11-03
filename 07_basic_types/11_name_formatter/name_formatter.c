@@ -54,7 +54,7 @@ printf("%s, %c.\n", last_name, first_name[0]);
   if (j < 2 && k > 0) {
     j++;
   }
-  printf("%s %c\n", names_array[1], names_array[0][0]);
+  printf("%s, %c.\n", names_array[1], names_array[0][0]);
 
   return 0;
 
