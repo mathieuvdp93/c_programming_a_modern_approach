@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
 
@@ -7,14 +8,19 @@ int main(void) {
 
   float total_value = 0.0;
   float value_two = 0.0;
-  int operand;
+  char op;
 
   scanf("%f", &total_value);
-  scanf("%c", &operand);
+  if (scanf("%c", &op) != 1) {
+    op = '\n';
+  }
 
-  while (operand != '\n') {
-    scanf("%f", &value_two);
-    switch (operand) {
+  while (op != '\n') {
+    if (scanf("%f", &value_two) != 1) {
+      printf("missing or invalid operand\n");
+      exit(EXIT_FAILURE);
+    }
+    switch (op) {
     case '+':
       total_value += value_two;
       break;
@@ -27,9 +33,15 @@ int main(void) {
     case '/':
       total_value /= value_two;
       break;
+    default:
+      printf("Not a valid operator\n");
+      exit(EXIT_FAILURE);
     }
-    scanf("%c", &operand);
+    if (scanf("%c", &op) != 1) {
+      break;
+    }
   }
 
   printf("%f\n", total_value);
+  return 0;
 }
