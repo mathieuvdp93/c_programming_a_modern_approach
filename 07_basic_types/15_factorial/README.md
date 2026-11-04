@@ -14,7 +14,9 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- for integer types in c23 you can use the ckdint.h library to check for mult,sub,add overflow
+- for floating point types it's harder, you have to create your own function that checks if the result of the addition, subtraction or multiplication makes it tip into infinity.
+- also factorials get big really quick.
 
 ## 🐛 Mistakes & Fixes
 
