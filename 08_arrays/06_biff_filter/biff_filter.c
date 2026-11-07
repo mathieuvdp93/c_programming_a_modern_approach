@@ -8,9 +8,9 @@ int main(void) {
   printf("Enter message: ");
   fflush(stdout);
 
-  scanf("%80s", user_input);
+  scanf("%80[^\n]", user_input);
 
-  for (int i = 0; i < sizeof(user_input) / sizeof(user_input[0]); i++) {
+  for (size_t i = 0; i < sizeof(user_input) / sizeof(user_input[0]); i++) {
 
     switch (user_input[i]) {
     case 'a':
