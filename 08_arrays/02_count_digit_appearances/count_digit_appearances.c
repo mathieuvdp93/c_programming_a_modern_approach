@@ -17,12 +17,12 @@ int main(void) {
     user_input /= 10;
   } while (user_input > 0);
 
-  printf("digit:\t\t\t");
+  printf("%-12s", "digit:");
   for (int i = 0; i < 10; i++) {
     printf("%3d", i);
   }
   printf("\n");
-  printf("occurences:");
+  printf("%-12s", "occurences:");
   for (int j = 0; j < 10; j++) {
     printf("%3d", digit_array[j]);
   }
