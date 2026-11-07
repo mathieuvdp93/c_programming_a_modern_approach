@@ -14,7 +14,7 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- use %s to line up the output text, eg.: printf("%-10s", "text:");
 
 ## 🐛 Mistakes & Fixes
 
