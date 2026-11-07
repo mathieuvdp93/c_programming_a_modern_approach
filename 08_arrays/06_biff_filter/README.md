@@ -14,7 +14,7 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- to use scanf set format [^\n] to read everything until \n
 
 ## 🐛 Mistakes & Fixes
 
