@@ -13,7 +13,7 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- go over 2d arrays
 
 ## 🐛 Mistakes & Fixes
 
