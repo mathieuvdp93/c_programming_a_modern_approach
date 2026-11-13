@@ -39,7 +39,7 @@ int main(void) {
         success = 1;
         break;
       } else {
-        down_failure = 1;
+        left_failure = 1;
         break;
       }
     case 1:
@@ -48,7 +48,7 @@ int main(void) {
         success = 1;
         break;
       } else {
-        right_failure = 1;
+        up_failure = 1;
         break;
       }
     case 2:
@@ -57,7 +57,7 @@ int main(void) {
         success = 1;
         break;
       } else {
-        up_failure = 1;
+        right_failure = 1;
         break;
       }
     case 3:
@@ -66,7 +66,7 @@ int main(void) {
         success = 1;
         break;
       } else {
-        left_failure = 1;
+        down_failure = 1;
         break;
       }
     }
