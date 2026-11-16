@@ -14,7 +14,8 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- learned i can use printf(".*s", lenght, str) to print a certain length of a string:w
+
 
 ## 🐛 Mistakes & Fixes
 
