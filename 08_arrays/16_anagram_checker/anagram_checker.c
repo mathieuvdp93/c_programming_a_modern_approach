@@ -2,12 +2,13 @@
 #include <stdio.h>
 
 #define ALPHABET_LENGTH 26
+#define MAX_WORD_LENGTH 100
 
 int main(void) {
 
   int letter_counter[ALPHABET_LENGTH] = {0};
-  char *first_word;
-  char *second_word;
+  char first_word[MAX_WORD_LENGTH];
+  char second_word[MAX_WORD_LENGTH];
 
   printf("Enter first word: ");
   fflush(stdout);
@@ -35,13 +36,17 @@ int main(void) {
     }
   }
 
+  _Bool anagram = 1;
   for (int i = 0; i < ALPHABET_LENGTH; i++) {
     if (letter_counter[i] != 0) {
-      printf("The words are not anagrams.\n");
+      anagram = 0;
       break;
-    } else {
-      printf("The words are anagrams.\n");
     }
+  }
+  if (anagram == 0) {
+    printf("The words are not anagrams.\n");
+  } else {
+    printf("The words are anagrams.\n");
   }
   return 0;
 }
