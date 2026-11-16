@@ -14,7 +14,8 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- you can use memset to set a vla to all 0's
+- if you wrap around an array in a consistent way, you can use % instead of more complicated if/else statements to do the wrap around
 
 ## 🐛 Mistakes & Fixes
 
