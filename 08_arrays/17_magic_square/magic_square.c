@@ -4,24 +4,38 @@
 int main(void) {
 
   int size_magic_square;
-  int magic_square[size_magic_square][size_magic_square];
-
-  memset(magic_square, 0,
-         sizeof(magic_square)); // this works because sizeof(magic_square) =
-                                // rows * colls * sizeof(int)
 
   printf("Enter the size of the magic array: ");
   fflush(stdout);
 
   scanf("%d", &size_magic_square);
 
+  int magic_square[size_magic_square][size_magic_square];
+
+  memset(magic_square, 0,
+         sizeof(magic_square)); // this works because sizeof(magic_square) =
+                                // rows * colls * sizeof(int)
+
+  int row = 0;
+  int col = size_magic_square / 2;
+
   for (int i = 1; i <= size_magic_square * size_magic_square; i++) {
-    int row = 0;
-    int col = (size_magic_square / 2) + 1;
 
     if (magic_square[row][col] != 0) {
-      row++;
+      if (size_magic_square - row == 2) {
+        row = 0;
+      } else if (size_magic_square - row == 1) {
+        row = 1;
+      } else {
+        row += 2;
+      }
+      if (col != 0) {
+        col--;
+      } else {
+        col = size_magic_square - 1;
+      }
     }
+
     magic_square[row][col] = i;
 
     if (row != 0) {
@@ -35,6 +49,13 @@ int main(void) {
     } else {
       col = 0;
     }
+  }
+
+  for (int i = 0; i < size_magic_square; i++) {
+    for (int j = 0; j < size_magic_square; j++) {
+      printf("%3d", magic_square[i][j]);
+    }
+    printf("\n");
   }
 
   return 0;
