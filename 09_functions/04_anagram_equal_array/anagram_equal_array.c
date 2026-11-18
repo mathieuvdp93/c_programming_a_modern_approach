@@ -26,21 +26,21 @@ int main(void) {
   return 0;
 }
 
-void read_words(int counts[]) {
+void read_words(int counts[ALPHABET_LENGTH]) {
 
   printf("enter your word: ");
   fflush(stdout);
 
   int ch;
-  while (isalpha(tolower(ch = getchar()))) {
-    counts[ch - 'a']++;
+  while (isalpha(ch = getchar())) {
+    counts[tolower(ch) - 'a']++;
   }
 }
 
-bool equal_array(int counts1[], int counts2[]) {
+bool equal_array(int counts1[ALPHABET_LENGTH], int counts2[ALPHABET_LENGTH]) {
 
   for (int i = 0; i < ALPHABET_LENGTH; i++) {
-    if ((counts1[i] - counts2[i]) != 0) {
+    if (counts1[i] != counts2[i]) {
       return false;
     }
   }

@@ -18,6 +18,8 @@ What I wanted to learn:
 ## 🐛 Mistakes & Fixes
 
 - **Problem:**  
+  while (isalpha(tolower(ch = getchar()))) 
+  this only makes ch lowercase in the isalpha call and then it's back to uppercase. should use the tolower when it actually matters.
   **Fix:** 
 
 ## ❓ Open Questions
