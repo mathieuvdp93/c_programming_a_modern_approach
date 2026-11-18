@@ -1,13 +1,14 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-void selection_sort(int array_to_sort[], int array_length);
+void selection_sort(int array_to_sort[], size_t array_length);
 
 int main(void) {
 
-  int capacity = 4;
-  int count = 0;
+  size_t capacity = 4;
+  size_t count = 0;
 
   int *numbers = malloc(capacity * sizeof(*numbers));
   if (numbers == NULL) {
@@ -41,27 +42,27 @@ int main(void) {
     count++;
   }
 
-  for (int i = 0; i < count; i++) {
+  for (size_t i = 0; i < count; i++) {
     printf("%5d", numbers[i]);
   }
   printf("\n");
 
   selection_sort(numbers, count);
 
-  for (int i = 0; i < count; i++) {
+  for (size_t i = 0; i < count; i++) {
     printf("%-5d", numbers[i]);
   }
-  printf("\ncount = %d\ncapacity = %d\n", count, capacity);
+  printf("\ncount = %zu\ncapacity = %zu\n", count, capacity);
 
   free(numbers);
   return 0;
 }
 
-void selection_sort(int numbers_to_sort[], int count) {
+void selection_sort(int numbers_to_sort[], size_t count) {
 
   int max = INT_MIN;
   int index_to_replace = 0;
-  for (int i = 0; i < count; i++) {
+  for (size_t i = 0; i < count; i++) {
     if (numbers_to_sort[i] > max) {
       max = numbers_to_sort[i];
       index_to_replace = i;
@@ -71,8 +72,10 @@ void selection_sort(int numbers_to_sort[], int count) {
   numbers_to_sort[count - 1] = max;
   numbers_to_sort[index_to_replace] = tmp;
 
-  while (count != 0) {
-    count--;
+  count--;
+  printf("%zu\n", count);
+  sleep(2);
+  if (count != 1) {
     selection_sort(numbers_to_sort, count);
   }
 }
