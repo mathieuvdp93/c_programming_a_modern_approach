@@ -9,8 +9,7 @@
 
 What I wanted to learn:
 
-- compare arrays.
-- make my own variable arrays again
+- compare arrays
 
 ## 💡 What I Learned
 
