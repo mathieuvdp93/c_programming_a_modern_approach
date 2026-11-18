@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,7 +15,7 @@ int main(void) {
     exit(EXIT_FAILURE);
   }
 
-  printf("enter a series of integers: ");
+  printf("enter a series of integers (enter a letter to stop): ");
   fflush(stdout);
 
   int value;
@@ -40,8 +41,38 @@ int main(void) {
     count++;
   }
 
-  // just to test
   for (int i = 0; i < count; i++) {
     printf("%5d", numbers[i]);
+  }
+  printf("\n");
+
+  selection_sort(numbers, count);
+
+  for (int i = 0; i < count; i++) {
+    printf("%-5d", numbers[i]);
+  }
+  printf("\ncount = %d\ncapacity = %d\n", count, capacity);
+
+  free(numbers);
+  return 0;
+}
+
+void selection_sort(int numbers_to_sort[], int count) {
+
+  int max = INT_MIN;
+  int index_to_replace = 0;
+  for (int i = 0; i < count; i++) {
+    if (numbers_to_sort[i] > max) {
+      max = numbers_to_sort[i];
+      index_to_replace = i;
+    }
+  }
+  int tmp = numbers_to_sort[count - 1];
+  numbers_to_sort[count - 1] = max;
+  numbers_to_sort[index_to_replace] = tmp;
+
+  while (count != 0) {
+    count--;
+    selection_sort(numbers_to_sort, count);
   }
 }
