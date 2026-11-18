@@ -301,3 +301,189 @@ int main(void) {
    * 	return product;
    * 	}
    */
+
+  /*
+   * EXERCISE 13:
+   * Write the following function, which evalates a chess psosition:
+   * int evaluate_position(char board[8][8]);
+   * board represents a configuration of pieces on a chessboard, where the
+   * letters K, Q, R, B, N, P represent white pieces, and the letters k, q, r,
+   * b, n, p represent black pieces. evaluate_position should sum the values of
+   * the white pieces( Q = 9, R = 5, B = 3, N = 3, p = 1). It should also sum
+   * the black pieces in a similar way. The function will return the difference
+   * between the two numbes. This value will be positive if white has advantage
+   * in material and negative if black has  an advantage.
+   */
+
+  /*
+   * 1st attempt:
+   * int evaluate_position(char board[8][8]) {
+   * 	int score_white = 0;
+   * 	int score_black = 0;
+   *
+   * 	for(int i = 0; i < 8; i++) {
+   * 		for( int j = 0; j < 8; j++) {
+   * 			char piece = board[i][j];
+   *
+   * 			switch (piece) {
+   * 			case 'Q':
+   * 				score_white += 9;
+   * 				break;
+   * 			case 'q':
+   * 				score_black += 9;
+   * 				break;
+   * 			case 'R':
+   * 				score_white += 5;
+   * 				break;
+   * 			case 'r':
+   * 				score_black +=5;
+   * 				break;
+   * 			case 'B':
+   * 				score_white += 3;
+   * 				break;
+   * 			case 'b':
+   * 				score_black += 3;
+   * 				break;
+   * 			case 'N':
+   * 				score_white += 3;
+   * 				break;
+   * 			case 'n':
+   * 				score_black += 3;
+   * 				break;
+   * 			case 'P':
+   * 				score_white += 1;
+   * 				break;
+   * 			case 'p':
+   * 				score_black += 1;
+   * 				break;
+   * 			}
+   * 		}
+   * 	}
+   * 	return score_white - score_black;
+   * }
+   */
+
+  /*
+   * EXERCISE 14:
+   * The following function is supposed to return true if any element of the
+   * array a has the value 0 and false if all elements are nonzero. Sadly, it
+   * contains an error. Find the error and show how to fix it: bool has_zero(int
+   * a[], int n) { int i; for( i = 0; i < n; i++) if (a[i] == 0) return true;
+   * 		else
+   * 			return false;
+   * }
+   */
+
+  /*
+   * 1st attempt:
+   * the else statement should be removed because now the function returns when
+   * it encounters the first non-zero value. the return false should be at the
+   * end of the function outside the for loop.
+   */
+
+  /*
+   * EXERCISE 15:
+   * The following (rather confusing) function finds the median of three
+   * numbers. Rewrite the function so that it has just one return statement.
+   * double median(double x, double y, double z) {
+   * 	if (x <= y){
+   * 		if (y <= z) {
+   * 			return y;
+   * 		}else if( x <= z) {
+   * 			return z;
+   * 		} else {
+   * 			return x;
+   * 		}
+   * 		}
+   * 		if (z <= y) {
+   * 			return y;
+   * 		}
+   * 		if ( x <= z) {
+   * 			return x;
+   * 		}
+   * 	return z;
+   * }
+   */
+
+  /*
+   * 1st attempt:
+   * i won't rewrite the whole function, you can declare a variable double
+   * median and then replace every return with median = x,y,z depending on which
+   * value was returned and then at the end of the function you return the
+   * median value.
+   *
+   * wrong, the return values were also important to stop the rest of the code
+   * from being executed,
+   *
+   *
+   * double median(double x, double y, double z) {
+   * 	double tmp = 0;
+   *
+   * 	if ( x > y) {
+   * 		tmp = x;
+   * 		x = y;
+   * 		y = tmp;
+   * 	}
+   * 	if ( y > z) {
+   * 		tmp = y;
+   * 		y = z;
+   * 		z = tmp;
+   * 	}
+   * 	if (x > y) {
+   * 		tmp = x;
+   * 		x = y;
+   * 		y = tmp;
+   * 	}
+   * 	return y;
+   * }
+   */
+
+  /*
+   * EXERCISE 16:
+   * Condense the fact function in the same way we condensed power.
+   */
+
+  /*
+   * 1st attempt:
+   *
+   * int fact( int n) {
+   * 	return n <= 1 ? 1 : n * fact(n - 1);
+   * }
+   */
+
+  /*
+   * EXERCISE 18:
+   * Write a recursive version of the gcd function (ex. 3). Here's the strategy
+   * to use for computing gcd(m,n): if n is 0, return m, otherwise call gcd
+   * recursively, passing n as the first argument and m % n as the second.
+   */
+
+  /*
+   * 1st attempt
+   * int gcd(int m, int n) {
+   * 	return n == 0 ? m : gcd(n , (m % n));
+   * }
+   */
+
+  /*
+   * EXERCISE 19:
+   * Consider the following "mystery" function:
+   * void pb(int n) {
+   * 	if ( n != 0) {
+   * 		pb(n / 2);
+   * 		putchar('0' + n % 2);
+   * 	}
+   * }
+   * Trace the execution by hand. Then write a program that calsl the function,
+   * passing it a number entered by the user. What does the function do?
+   */
+
+  /*
+   * 1st attempt:
+   * my guess is that it runs in an infinite loop since it doesn't return
+   * anything there is no way to unwind the stack of previous function calls.
+   *
+   * wrong, when it reaches pb(0) it starts unwinding, and the function prints
+   * the number you pass to it in binary.
+   */
+}
