@@ -17,11 +17,9 @@ int main(void) {
   scanf("%zu", &ms_length);
 
   int *ms = create_magic_square(ms_length);
-  printf("size of ms: %zu\n sizeof ms[0]: %zu\nsizeof ms[1][3]: %zu\n",
-         sizeof(ms), sizeof(ms[0]), sizeof(ms[idx(1, 3, ms_length)]));
 
-  // fill_magic_square(ms, ms_length);
-  // print_magic_square(ms, ms_length);
+  fill_magic_square(ms, ms_length);
+  print_magic_square(ms, ms_length);
 
   free(ms);
   return 0;
@@ -42,4 +40,33 @@ int *create_magic_square(size_t dimension) {
 
 static inline size_t idx(int row, int col, size_t row_length) {
   return row * row_length + col;
+}
+
+void fill_magic_square(int *ms, size_t length) {
+
+  int startpos = length / 2;
+  int row = 0;
+  int col = startpos;
+
+  for (int i = 1; i <= length * length; i++) {
+
+    if (ms[idx(row, col, length)] != 0) {
+      row++;
+    }
+
+    ms[idx(row, col, length)] = i;
+
+    row = (row + length - 1) % length;
+    col = (col + 1) % length;
+  }
+}
+
+void print_magic_square(int *ms, size_t length) {
+
+  for (int i = 0; i < length; i++) {
+    for (int j = 0; j < length; j++) {
+      printf("%d\t", ms[idx(i, j, length)]);
+    }
+    printf("\n");
+  }
 }
