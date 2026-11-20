@@ -4,7 +4,7 @@
 
 int *create_magic_square(size_t n);
 void fill_magic_square(int *magic_square, size_t n);
-void print_magic_square(int *magic_square, size_t n);
+void print_magic_square(const int *magic_square, size_t n);
 static inline size_t idx(int row, int col, size_t row_length);
 
 int main(void) {
@@ -33,7 +33,7 @@ int *create_magic_square(size_t dimension) {
     exit(EXIT_FAILURE);
   }
 
-  memset(ms, 0, dimension * dimension);
+  memset(ms, 0, dimension * dimension * sizeof(*ms));
 
   return ms;
 }
@@ -44,27 +44,27 @@ static inline size_t idx(int row, int col, size_t row_length) {
 
 void fill_magic_square(int *ms, size_t length) {
 
-  int startpos = length / 2;
-  int row = 0;
-  int col = startpos;
+  size_t row = 0;
+  size_t col = length / 2;
 
-  for (int i = 1; i <= length * length; i++) {
+  for (size_t i = 1; i <= length * length; i++) {
 
     if (ms[idx(row, col, length)] != 0) {
-      row++;
+      row = (row + 2) % length;
+      col = (col + length - 1) % length;
     }
 
-    ms[idx(row, col, length)] = i;
+    ms[idx(row, col, length)] = (int)i;
 
     row = (row + length - 1) % length;
     col = (col + 1) % length;
   }
 }
 
-void print_magic_square(int *ms, size_t length) {
+void print_magic_square(const int *ms, size_t length) {
 
-  for (int i = 0; i < length; i++) {
-    for (int j = 0; j < length; j++) {
+  for (size_t i = 0; i < length; i++) {
+    for (size_t j = 0; j < length; j++) {
       printf("%d\t", ms[idx(i, j, length)]);
     }
     printf("\n");
