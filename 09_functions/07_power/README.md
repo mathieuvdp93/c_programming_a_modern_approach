@@ -14,7 +14,7 @@ What I wanted to learn:
 
 ## 💡 What I Learned
 
-- 
+- i understand the concept of recursion, but i still can't apply it or find how to use it on my own
 
 ## 🐛 Mistakes & Fixes
 
