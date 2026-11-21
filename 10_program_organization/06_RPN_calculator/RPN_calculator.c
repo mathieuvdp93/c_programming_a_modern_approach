@@ -33,13 +33,22 @@ int main(void) {
         push(op2 * op1, operands_stack, &top);
         break;
       case '/':
-        push(op1 / op1, operands_stack, &top);
+        if (op1 == 0) {
+          printf("division by 0\n");
+          exit(EXIT_FAILURE);
+        }
+        push(op2 / op1, operands_stack, &top);
         break;
       }
     } else if (ch == '=') {
-      printf("Value of expression: %d", pop(operands_stack, &top));
+      int32_t result = pop(operands_stack, &top);
+      if (top != 0) {
+        printf("Too many operands in expression\n");
+        exit(EXIT_FAILURE);
+      }
+      printf("Value of expression: %d\n", result);
     } else if (ch != ' ') {
-      printf("invalid input");
+      printf("invalid input\n");
     }
   }
 }
@@ -56,7 +65,7 @@ void push(int32_t num, int32_t *operands_stack, int8_t *top) {
 }
 
 int32_t pop(int32_t operands_stack[], int8_t *top) {
-  if (top == 0) {
+  if (*top == 0) {
     printf("Not enough operands in expression\n");
     exit(EXIT_FAILURE);
   }
